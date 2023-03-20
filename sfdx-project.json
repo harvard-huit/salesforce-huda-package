@@ -2,7 +2,10 @@
   "packageDirectories": [
     {
       "path": "force-app",
-      "default": true
+      "default": true,
+      "package": "HUDA",
+      "versionName": "v2.0",
+      "versionNumber": "2.0.NEXT"
     }
   ],
   "name": "huda",

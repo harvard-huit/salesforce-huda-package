@@ -19,56 +19,51 @@
  *
  * See the Apex Language Reference for more information about Testing and Code Coverage.
  */
-@isTest(seeAllData=false)
-private class HUDEmailsUpdateByContactsBatchTest {
-
+@isTest
+private class HUDNameToUpdateAccountsBatchDataLoadTest {
   public static List<Contact> contactsList;
-  public static List<hud_Email__c> emailsList;
-  public static String MULE_KEY;
-  public static HUDEmailsUpdateByContactsBatch myTestClass;
+  public static List<Account> objList;
+  
+  public static HUDNameToUpdateAccountsBatchDataLoad myTestClass;
    
   static void init(){
-     myTestClass = new HUDEmailsUpdateByContactsBatch();
-     //myTestClass.query='select id, MULE_UNIQUE_PERSON_KEY__c, Email_Contact__c from hud_Email__c where Email_Contact__c=null';
+     myTestClass = new HUDNameToUpdateAccountsBatchDataLoad();
      myTestClass.email='testBatch@harvard.edu';
      
      contactsList = new List<Contact>();
-     emailsList = new List<hud_Email__c>();
-     MULE_KEY = 'abcdefg';
-     emailsList.add(new hud_Email__c(
-           MULE_UNIQUE_PERSON_KEY__c = MULE_KEY
+     objList = new List<Account>();
+    
+     objList.add(new Account(
+           Name = 'test'
      ));
   }
 
-  /** Test with creating an email object first and then creating a contact after **/
+  /** Test with creating a Name object first and then creating a contact after **/
   static testMethod void test() {
      init();
      Test.startTest();
      
-     insert emailsList;
+     insert objList;
      
      contactsList.add(new Contact(
-         hud_MULE_UNIQUE_PERSON_KEY__c = MULE_KEY,
-         LastName = 'Smith'
+         AccountId = objList[0].Id,
+         LastName = 'mylastname',
+         hud_MULE_UNIQUE_PERSON_KEY__c = '123'
      ));
      insert contactsList;
    
      ID batchprocessid = Database.executeBatch(myTestClass);
-     
+    
      Test.stopTest();
      
-     // Getting the hud_Address to verify that the ‘Email_Contact__c’ field is not null
-     emailsList = [
-         SELECT Id, Email_Contact__c
-         FROM hud_Email__c
-         WHERE Id =:emailsList[0].Id
+     objList = [
+         SELECT Id, Name  
+         FROM Account
+         WHERE Id =:objList[0].Id
      ];
      
-     
-     
      // Verification
-     //System.assertEquals(emailsList[0].Email_Contact__c, contactsList[0].Id);
-     System.assertEquals(contactsList[0].Id,
-        [SELECT Id, Email_Contact__c FROM hud_Email__c WHERE Id = :emailsList[0].Id].Email_Contact__c);
+     System.assertEquals('mylastname Account', objList[0].Name);
+    
    }
 }
