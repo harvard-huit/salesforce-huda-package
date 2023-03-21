@@ -27,7 +27,7 @@ global class HUDNameToUpdateContactsForEPPNBatch implements Database.Batchable<s
             muleKeys.add(c.hud_MULE_UNIQUE_PERSON_KEY__c);
         }
         hud_Name__c[] allObjs = [
-            select id,NAME_TYPE__c,NAME_LAST__c, NAME_FIRST__c, HUDA__MULE_UNIQUE_PERSON_KEY__c 
+            select id,NAME_TYPE__c,NAME_LAST__c, NAME_FIRST__c, MULE_UNIQUE_PERSON_KEY__c 
             from hud_Name__c 
             where MULE_UNIQUE_PERSON_KEY__c in :muleKeys
             and eff_status__c ='A'

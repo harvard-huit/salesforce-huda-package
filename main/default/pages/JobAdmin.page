@@ -1,4 +1,4 @@
-<apex:page showHeader="true" sidebar="true" controller="HUDA.JobAdmin">
+<apex:page showHeader="true" sidebar="true" controller="JobAdmin">
 	<apex:form >
 		<apex:sectionHeader title="HUDA Job Admin" />
 

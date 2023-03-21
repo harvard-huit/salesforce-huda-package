@@ -1,4 +1,4 @@
-<apex:page controller="HUDA.myTestForBatchController">
+<apex:page controller="myTestForBatchController">
 
     <!-- Begin Default Content REMOVE THIS -->
 
