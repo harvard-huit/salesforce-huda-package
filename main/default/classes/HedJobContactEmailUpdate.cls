@@ -3,7 +3,7 @@ Scheduled job for updating HILT Constituent data with Harvard Data once every da
 */
 global class HedJobContactEmailUpdate implements Schedulable {
 
-   public static String CRON_EXP = '0 01 01 * * ?';
+//    public static String CRON_EXP = '0 01 01 * * ?';
    
    global void execute( SchedulableContext SC )
         {        

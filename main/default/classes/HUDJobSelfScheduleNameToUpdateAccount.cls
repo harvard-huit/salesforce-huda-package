@@ -3,7 +3,7 @@ Scheduled job for updating the name of the account by related contact's last nam
 
 */
 global class HUDJobSelfScheduleNameToUpdateAccount implements Schedulable {
-  public static String CRON_EXP = '0 01 * * * ?';
+  // public static String CRON_EXP = '0 01 * * * ?';
 
    global void execute( SchedulableContext SC )
         {        

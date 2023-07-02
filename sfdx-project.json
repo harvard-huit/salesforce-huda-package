@@ -5,7 +5,7 @@
       "default": true,
       "package": "huda",
       "versionName": "v2.0",
-      "versionNumber": "2.0.NEXT",
+      "versionNumber": "2.0.0",
       "dependencies": [
         {
           "package": "eda@1.121"

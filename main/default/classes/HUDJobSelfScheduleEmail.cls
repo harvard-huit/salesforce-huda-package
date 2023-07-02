@@ -3,7 +3,7 @@ Scheduled job for updating the contact ID field for HUDA  address
 every day for the orphan objects.
 */
 global class HUDJobSelfScheduleEmail implements Schedulable {
-    public static String CRON_EXP = '0 01 * * * ?';
+    // public static String CRON_EXP = '0 01 * * * ?';
 
    global void execute( SchedulableContext SC )
         {  
