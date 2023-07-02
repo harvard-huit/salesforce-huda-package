@@ -3,13 +3,18 @@
     {
       "path": "force-app",
       "default": true,
-      "package": "HUDA",
+      "package": "huda",
       "versionName": "v2.0",
-      "versionNumber": "2.0.NEXT"
+      "versionNumber": "2.0.NEXT",
+      "dependencies": [
+        {
+          "package": "eda@1.121"
+        }
+      ]    
     }
   ],
   "name": "huda",
-  "namespace": "",
+  "namespace": "HUDA",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "57.0"
 }

@@ -21,22 +21,41 @@ In order to install the older version of HUDA (that this code comes from), use t
 
 ### Setup steps
 
-NOTE: You can see what orgs your sfdx environment is currently using with `sfdx force:org:list`. That will show your dev hub and any sandboxes or scratch orgs. 
+NOTE: You can see what orgs your sfdx environment is currently using with `sfdx org:list`. That will show your dev hub and any sandboxes or scratch orgs. 
 
-1. Create a scratch org
+1. Create a Dev Hub from a Developer org
+  a. sign up for a developer org, these are free and unaffiliated with your other orgs
+  b. turn on Dev Hub under settings -> Development -> Dev Hub
+  c. wait like 20 minutes
+
+2. Register the Namespace
+
+This is only needed if the project uses a namespace -- the HUDA project does use the HUDA namespace. 
+  a. log in to the Dev Hub Developer Org
+  b. navigate to the Namespace Registry (this will only show if the Dev Hub is enabled and you've waited long enough)
+  c. Link Namespace and log in to a registry holder, in this case it would be the `hudapackage1@harvard.edu` user and accept
+
+3. Create a scratch org
   a. designate a dev hub
     ```
-    auth:web:login -d -a DevHub
+    sfdx org:login:web -d -a DevHub
     ```
-    The dev hub "needs to be a paid instance" and can't apparently be a sandbox, which is annoying. 
-  b. create a new local project (or use an existing one and skip this)
+    The dev hub should be a Developer Org. It can't be a sandbox. 
+
+    Note: you can use `sfdx org:list` to see what you currently have available. You should see a `(D)` next to the Dev Hub you've logged in to.
+
+  b. create a new local project (or use an existing one (like this project) and skip this)
     ```
     sfdx force:project:create -n "name of project"
     ```
+
   c. create scratch org
     ```
-    sfdx force:org:create -s -f config/project-scratch-def.json -a MyScratchOrg
+    sfdx org:create:scratch -s -f config/project-scratch-def.json -a MyScratchOrg
     ```
+
+    Note: this can take 2-10 minutes
+    
 2. Generate a password (needed to install the EDA package)
     ```
     sfdx force:user:password:generate --targetusername <username to scratch org>
@@ -45,7 +64,15 @@ NOTE: You can see what orgs your sfdx environment is currently using with `sfdx 
 
 4. Install HUDA from your local to your scratch org:
     ```
-    sfdx force:source:deploy --sourcepath . --targetusername test-h3t42txpg2ux@example.com
+    sfdx project:deploy:start --sourcepath . --targetusername test-h3t42txpg2ux@example.com
+    ```
+    This will move all of the meta data and create the objects/classes over as though it was installed.
+
+    Or you can build the package and install that. 
+    
+    Building the package looks like: 
+    ```
+
     ```
 
 ### Creating source from compiled package
