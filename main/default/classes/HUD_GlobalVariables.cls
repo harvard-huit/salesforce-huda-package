@@ -1,3 +1,4 @@
+@Deprecated
 public class HUD_GlobalVariables {
 	  public  String getEmailAlertEmailbox()
         {

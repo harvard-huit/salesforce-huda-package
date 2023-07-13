@@ -1,6 +1,7 @@
 /*
 
 */
+@Deprecated
 public class HUDAddressesUpdateByContacts {
 
    public HUDAddressesUpdateByContacts()

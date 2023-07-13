@@ -1,3 +1,4 @@
+@Deprecated
 public class HED_AffiliationsUpdateByContacts {
     
 public HED_AffiliationsUpdateByContacts()

@@ -1,3 +1,4 @@
+@Deprecated
 global class HUDNameToUpdateAccountsBatch implements Database.Batchable<sObject>{
     public String email;
 

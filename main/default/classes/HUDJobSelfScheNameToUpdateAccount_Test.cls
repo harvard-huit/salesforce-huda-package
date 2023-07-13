@@ -33,9 +33,9 @@ public static List<Contact> contactsList;
        insert myVari;
 
       // Schedule the test job
-       String jobId = System.schedule('testScheduledApex',
-            HUDJobSelfScheduleNameToUpdateAccount.CRON_EXP, 
-            new HUDJobSelfScheduleNameToUpdateAccount());
+      //  String jobId = System.schedule('testScheduledApex',
+      //       HUDJobSelfScheduleNameToUpdateAccount.CRON_EXP, 
+      //       new HUDJobSelfScheduleNameToUpdateAccount());
      
     
      Test.stopTest();

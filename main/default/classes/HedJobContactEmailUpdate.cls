@@ -1,6 +1,7 @@
 /*
 Scheduled job for updating HILT Constituent data with Harvard Data once every day at 01:01.
 */
+@Deprecated
 global class HedJobContactEmailUpdate implements Schedulable {
 
 //    public static String CRON_EXP = '0 01 01 * * ?';

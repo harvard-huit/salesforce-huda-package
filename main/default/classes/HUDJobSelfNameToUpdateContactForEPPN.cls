@@ -1,3 +1,4 @@
+@Deprecated
 global class HUDJobSelfNameToUpdateContactForEPPN implements Schedulable {
   // public static String CRON_EXP = '0 01 * * * ?';
 
