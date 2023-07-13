@@ -51,14 +51,14 @@ This is only needed if the project uses a namespace -- the HUDA project does use
 
   c. create scratch org
     ```
-    sfdx org:create:scratch -s -f config/project-scratch-def.json -a MyScratchOrg
+    sfdx org:create:scratch -f config/project-scratch-def.json -a HarvardDataScratch
     ```
 
     Note: this can take 2-10 minutes
     
 2. Generate a password (needed to install the EDA package)
     ```
-    sfdx force:user:password:generate --targetusername <username to scratch org>
+    sfdx force:user:password:generate --target-org HarvardDataScratch
     ```
 3. Install EDA by going here and logging in to your scratch org with the password you just created: [https://install.salesforce.org/products/eda/latest/install]
 
@@ -74,6 +74,13 @@ This is only needed if the project uses a namespace -- the HUDA project does use
     ```
 
     ```
+
+
+### Package up contents to deploy
+
+```
+sfdx package:create --name huda --description "Huda Test" --package-type Unlocked --path mdapioutput --target-dev-hub jazahn@gmail.com.dev
+```
 
 ### Creating source from compiled package
 
