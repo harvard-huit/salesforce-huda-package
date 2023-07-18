@@ -78,9 +78,69 @@ This is only needed if the project uses a namespace -- the HUDA project does use
 
 ### Package up contents to deploy
 
+#### Error with installing packages: `resource not found"
+
+"Enable Unlocked Packages and Second-Generation Managed Packages" is an option under "enable dev hub" and must be selected for any package management to work from `sfdx`. An `sfdx` package is considered a 2nd gen managed package.
+
+
+#### Create an unlocked package
 ```
-sfdx package:create --name huda --description "Huda Test" --package-type Unlocked --path mdapioutput --target-dev-hub jazahn@gmail.com.dev
+sf package:create --name huda --description "Huda Test" --package-type Unlocked --path force-app --target-dev-hub DevHub
 ```
+
+#### Create a Managed package
+
+```
+sfdx package:create --name huda --description "Huda 3.0 (Beta)" --path force-app --package-type Managed --target-dev-hub DevHub
+```
+
+#### Get the package id from the output of that or with 
+```
+sf package:list
+```
+
+#### Create a Package Version
+
+Set up the `sfdx-package.json` file with `versionName` and `versionNumber` appropriately (`versionNumber` needs a `NEXT` to increment)
+```
+{
+   "packageDirectories": [
+      {
+         "path": "force-app",
+         "default": true,
+         "package": "huda",
+         "versionName": "v2.0",
+         "versionNumber": "2.0.0.NEXT"
+      }
+   ],
+   "namespace": "HUDA",
+   "sfdcLoginUrl": "https://login.salesforce.com",
+   "sourceApiVersion": "59",
+   "packageAliases": {
+      "huda": "0Hoxxx"
+   }
+}
+```
+Run this to create the versioned package
+```
+sf package:version:create --path force-app --installation-key test1234 --wait 10 --target-dev-hub DevHub
+```
+
+Deploy it (paying attention to the `@` value on the package)
+```
+sf package:install --wait 10 --publish-wait 10 --package huda@2.0.0-1 --installation-key test1234 --no-prompt
+```
+
+#### Permset (if relevant)
+
+TODO: come back to this!
+
+```
+sf force:user:permset:assign --perm-set-name huda
+```
+
+
+
 
 ### Creating source from compiled package
 

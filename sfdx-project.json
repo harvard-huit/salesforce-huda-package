@@ -2,19 +2,24 @@
   "packageDirectories": [
     {
       "path": "force-app",
-      "default": true,
       "package": "huda",
-      "versionName": "v2.0",
-      "versionNumber": "2.0.0",
+      "versionName": "3.0 (BETA)",
+      "versionNumber": "3.0.0.NEXT",
       "dependencies": [
         {
           "package": "eda@1.121"
-        }
-      ]    
+        }        
+      ],
+      "default": true,
+      "versionDescription": "Huda 3.0 (Beta)"
     }
   ],
-  "name": "huda",
+  "name": "HUDA",
   "namespace": "HUDA",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "57.0"
+  "sourceApiVersion": "58.0",
+  "packageAliases": {
+    "huda": "0HoDp000000fxZhKAI",
+    "huda@2.0": "04t3s000002zlI8"
+  }
 }
