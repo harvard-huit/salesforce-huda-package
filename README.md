@@ -51,7 +51,7 @@ This is only needed if the project uses a namespace -- the HUDA project does use
 
   c. create scratch org
     ```
-    sfdx org:create:scratch -f config/project-scratch-def.json -a HarvardDataScratch
+    sf org:create:scratch -f config/project-scratch-def.json -a HarvardDataScratch
     ```
 
     Note: this can take 2-10 minutes
@@ -64,7 +64,7 @@ This is only needed if the project uses a namespace -- the HUDA project does use
 
 4. Install HUDA from your local to your scratch org:
     ```
-    sfdx project:deploy:start --sourcepath . --targetusername test-h3t42txpg2ux@example.com
+    sf project:deploy:start --sourcepath . --targetusername test-h3t42txpg2ux@example.com
     ```
     This will move all of the meta data and create the objects/classes over as though it was installed.
 
@@ -78,7 +78,7 @@ This is only needed if the project uses a namespace -- the HUDA project does use
 
 ### Package up contents to deploy
 
-#### Error with installing packages: `resource not found"
+#### Error with installing packages: `resource not found`
 
 "Enable Unlocked Packages and Second-Generation Managed Packages" is an option under "enable dev hub" and must be selected for any package management to work from `sfdx`. An `sfdx` package is considered a 2nd gen managed package.
 
@@ -101,6 +101,35 @@ sf package:list
 
 #### Create a Package Version
 
+##### Dependencies!
+
+<!-- 
+NO. This is not right:
+
+If you have a dependency (like EDA), you need to retrieve the metadata for that dependency from an existing org and it needs to be in the source. 
+
+ - Get the EDA metadata from an org that has it installed:
+ ```
+ sf project:retrieve:start --package-name EDA --target-org DevHub
+ ```
+
+ - Create a package from that metadata:
+ ```
+ sf package:create --name eda --description "EDA" --package-type Unlocked --path force-app --target-dev-hub DevHub
+ ``` -->
+
+Get the package id from an org:
+```
+sf package:installed:list --target-org DevHub
+```
+
+Then add the `04t` package id to the aliases in the project config. 
+```
+
+```
+
+
+
 Set up the `sfdx-package.json` file with `versionName` and `versionNumber` appropriately (`versionNumber` needs a `NEXT` to increment)
 ```
 {
@@ -115,7 +144,7 @@ Set up the `sfdx-package.json` file with `versionName` and `versionNumber` appro
    ],
    "namespace": "HUDA",
    "sfdcLoginUrl": "https://login.salesforce.com",
-   "sourceApiVersion": "59",
+   "sourceApiVersion": "58.0",
    "packageAliases": {
       "huda": "0Hoxxx"
    }
@@ -127,7 +156,7 @@ sf package:version:create --path force-app --installation-key test1234 --wait 10
 ```
 
 Deploy it (paying attention to the `@` value on the package)
-```
+``` 
 sf package:install --wait 10 --publish-wait 10 --package huda@2.0.0-1 --installation-key test1234 --no-prompt
 ```
 
@@ -139,7 +168,33 @@ TODO: come back to this!
 sf force:user:permset:assign --perm-set-name huda
 ```
 
+#### Install
 
+Installation to developer orgs and sandboxes can be done with 
+```
+sf package:version:install
+```
+
+Installation to a sandbox should be done with a URL. 
+```
+https://test.salesforce.com/packagingSetupUI/ipLanding.app?apvId=0HoDp000000fxZhKAI
+
+https://huitcrm--connector.sandbox.lightning.force.com/packagingSetupUI/ipLanding.app?apvId=0HoDp000000fxZhKAI
+
+https://login.salesforce.com/packaging/installPackage.apexp?p0=0HoDp000000fxZhKAI
+https://test.salesforce.com/packaging/installPackage.apexp?p0=0HoDp000000fxZhKAI
+
+```
+
+##### Note on version IDs
+
+In Salesforce, the key prefixes associated with packages differ based on the package type. The following are the key prefixes commonly used for Salesforce packages:
+
+ - First-Generation Packages:
+    - **033**: Unmanaged Package (First-Generation) 
+    - **04t**: Managed Package (First-Generation)
+ - Second-Generation Packages:
+    - **0Ho**: Package Version ID (Second-Generation)
 
 
 ### Creating source from compiled package

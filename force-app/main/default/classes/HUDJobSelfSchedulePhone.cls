@@ -2,7 +2,6 @@
 Scheduled job for updating the contact ID field for HUDA  Phone
 every day for the orphan objects.
 */
-@Deprecated
 global class HUDJobSelfSchedulePhone implements Schedulable {
     // public static String CRON_EXP = '0 01 * * * ?';
 

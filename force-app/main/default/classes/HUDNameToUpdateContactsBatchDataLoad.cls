@@ -1,4 +1,3 @@
-@Deprecated
 global class HUDNameToUpdateContactsBatchDataLoad implements Database.Batchable<sObject>{
 public String email;
 

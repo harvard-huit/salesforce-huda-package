@@ -1,5 +1,4 @@
 // this class moves emails from the HUDA__hud_Email__c to the Contact.Email_Address__c field
-@Deprecated
 global class Contact_EmailField_Update_Batch implements Database.Batchable<sObject>{
     public String email;
 

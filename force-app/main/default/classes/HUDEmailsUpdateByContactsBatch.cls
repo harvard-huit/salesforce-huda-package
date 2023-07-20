@@ -11,7 +11,6 @@ batchJob.email='testBatch@harvard.edu';
 ID batchprocessid = Database.executeBatch(batchJob);
 */
 
-@Deprecated
 global class HUDEmailsUpdateByContactsBatch implements Database.Batchable<sObject>{
 public String email;
 

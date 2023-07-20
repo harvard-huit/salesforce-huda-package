@@ -1,4 +1,3 @@
-@Deprecated
 global class HED_AffiliationsUpdateByContactsBatch implements Database.Batchable<sObject>{
 public String email;
 

@@ -1,4 +1,3 @@
-@Deprecated
 global class HUDPhonesUpdateByContactsBatch implements Database.Batchable<sObject>{
 public String email;
 

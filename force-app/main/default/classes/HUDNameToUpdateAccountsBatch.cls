@@ -1,4 +1,3 @@
-@Deprecated
 global class HUDNameToUpdateAccountsBatch implements Database.Batchable<sObject>{
     public String email;
 
@@ -27,8 +26,8 @@ global class HUDNameToUpdateAccountsBatch implements Database.Batchable<sObject>
             }
         }
         update accountsToUpdate;
-    }
 */
+
 
 
 
@@ -93,7 +92,7 @@ global Database.querylocator start(Database.BatchableContext BC){
                         updateAccount=true;
                     }
                     
-                } 
+                }
                              
             }
                  

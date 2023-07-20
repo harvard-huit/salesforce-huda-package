@@ -2,17 +2,16 @@
 Scheduled job for updating the contact ID field for HUDA  address
 every day for the orphan objects.
 */
-@Deprecated
 global class HUDJobSelfSchedule implements Schedulable {
-    // public static String CRON_EXP = '0 01 * * * ?';
+    public static String CRON_EXP = '0 01 * * * ?';
 
    global void execute( SchedulableContext SC )
         {        
 
             try{
                 // do whatever it is you want to do here
-                //HUDAddressesUpdateByContacts myObj1 = new HUDAddressesUpdateByContacts ();
-                //myObj1.runUpdate();
+                HUDAddressesUpdateByContacts myObj1 = new HUDAddressesUpdateByContacts ();
+                myObj1.runUpdate();
            
                 HUDEmailsUpdateByContacts myObj2 = new HUDEmailsUpdateByContacts ();
                 myObj2.runUpdate();

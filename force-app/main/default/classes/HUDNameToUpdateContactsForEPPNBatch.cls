@@ -1,4 +1,3 @@
-@Deprecated
 global class HUDNameToUpdateContactsForEPPNBatch implements Database.Batchable<sObject>{
     public String email;
 

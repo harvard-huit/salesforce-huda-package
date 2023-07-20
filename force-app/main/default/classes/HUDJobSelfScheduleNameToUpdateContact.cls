@@ -2,7 +2,6 @@
 Scheduled job for updating the contact firstname and lastname by hud_name
 
 */
-@Deprecated
 global class HUDJobSelfScheduleNameToUpdateContact implements Schedulable {
   // public static String CRON_EXP = '0 01 * * * ?';
 

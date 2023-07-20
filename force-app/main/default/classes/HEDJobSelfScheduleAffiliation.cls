@@ -2,9 +2,8 @@
 Scheduled job for updating the contact ID field for HED_Affiliation
 every day for the orphan objects.
 */
-@Deprecated
 global class HEDJobSelfScheduleAffiliation implements Schedulable {
-    // public static String CRON_EXP = '0 5 * * * ?';
+    public static String CRON_EXP = '0 5 * * * ?';
 
    global void execute( SchedulableContext SC )
         {        
