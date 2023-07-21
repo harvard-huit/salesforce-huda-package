@@ -58,7 +58,7 @@ This is only needed if the project uses a namespace -- the HUDA project does use
     
 2. Generate a password (needed to install the EDA package)
     ```
-    sfdx force:user:password:generate --target-org HarvardDataScratch
+    sf force:user:password:generate --target-org HarvardDataScratch
     ```
 3. Install EDA by going here and logging in to your scratch org with the password you just created: [https://install.salesforce.org/products/eda/latest/install]
 
