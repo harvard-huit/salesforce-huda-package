@@ -43,29 +43,7 @@ private class HedJobContactEmailUpdate_Test {
        myVari.name = 'Email Address for Email Alerts';
        myVari.value__c = 'test_receiver@harvard.edu';
        insert myVari;
-   
-   
-  
-   
-   
-    //testing scheduling part
-      // Schedule a sccheduled job
-      //  String jobId = System.schedule('TestHedJobContactEmailUpdate',
-      //       HedJobContactEmailUpdate.CRON_EXP, 
-      //       new HedJobContactEmailUpdate());
-
-      // Get the information from the CronTrigger API object
-      // CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, 
-      //    NextFireTime
-      //    FROM CronTrigger WHERE id = :jobId];
-
-      // Verify the expressions are the same
-      // System.assertEquals(HedJobContactEmailUpdate.CRON_EXP, 
-      //    ct.CronExpression);
-
-      // Verify the job has not run
-      // System.assertEquals(0, ct.TimesTriggered);
-     
+    
      Test.stopTest();
      
      

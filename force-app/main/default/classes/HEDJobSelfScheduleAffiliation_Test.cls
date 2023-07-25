@@ -35,26 +35,6 @@ private class HEDJobSelfScheduleAffiliation_Test {
        myVari.value__c = 'test_receiver@harvard.edu';
        insert myVari;
        
-
-      // Schedule the test job
-            
-      //  String jobId = System.schedule('testScheduledApex',
-      //       HEDJobSelfScheduleAffiliation.CRON_EXP, 
-      //       new HEDJobSelfScheduleAffiliation());
-               
-
-      // Get the information from the CronTrigger API object
-      // CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, 
-      //    NextFireTime
-      //    FROM CronTrigger WHERE id = :jobId];
-
-      // Verify the expressions are the same
-      // System.assertEquals(HEDJobSelfScheduleAffiliation.CRON_EXP, 
-      //    ct.CronExpression);
-
-      // Verify the job has not run
-      // System.assertEquals(0, ct.TimesTriggered);
-      
        Account a = new Account();
        a.hud_DEPT_ID__c = '1234abc';
        a.Name = 'test';

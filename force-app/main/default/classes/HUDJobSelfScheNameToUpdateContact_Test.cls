@@ -62,23 +62,6 @@ private class HUDJobSelfScheNameToUpdateContact_Test {
        myVari.value__c = 'test_receiver@harvard.edu';
        insert myVari;
 
-      // Schedule the test job
-      //  String jobId = System.schedule('testScheduledApex',
-      //       HUDJobSelfScheduleNameToUpdateContact.CRON_EXP, 
-      //       new HUDJobSelfScheduleNameToUpdateContact());
-
-      // Get the information from the CronTrigger API object
-      // CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, 
-      //    NextFireTime
-      //    FROM CronTrigger WHERE id = :jobId];
-
-      // Verify the expressions are the same
-      // System.assertEquals(HUDJobSelfScheduleNameToUpdateContact.CRON_EXP, 
-      //    ct.CronExpression);
-
-      // Verify the job has not run
-      // System.assertEquals(0, ct.TimesTriggered);
-    
      Test.stopTest();
      
      contactsList = [

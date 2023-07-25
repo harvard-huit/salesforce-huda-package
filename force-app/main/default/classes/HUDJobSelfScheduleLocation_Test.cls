@@ -34,22 +34,6 @@ private class HUDJobSelfScheduleLocation_Test {
        myVari.value__c = 'test_receiver@harvard.edu';
        insert myVari;
 
-      // Schedule the test job
-      //  String jobId = System.schedule('testScheduledApex',
-      //       HUDJobSelfScheduleLocation.CRON_EXP, 
-      //       new HUDJobSelfScheduleLocation());
-
-      // Get the information from the CronTrigger API object
-      // CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, 
-      //    NextFireTime
-      //    FROM CronTrigger WHERE id = :jobId];
-
-      // Verify the expressions are the same
-      // System.assertEquals(HUDJobSelfScheduleLocation.CRON_EXP, 
-      //    ct.CronExpression);
-
-      // Verify the job has not run
-      // System.assertEquals(0, ct.TimesTriggered);
 
       // Verify the next time the job will run
       // The following line might need to comment out when deploying it to prod.
@@ -68,10 +52,7 @@ private class HUDJobSelfScheduleLocation_Test {
 
         System.assertEquals(a.Id,
         [SELECT Id, Location_Contact__c FROM hud_Location__c WHERE Id = :Obj.Id].Location_Contact__c);
-        
-        //System.assertEquals(null,
-        //[SELECT Id, Location_Contact__c FROM hud_Location__c WHERE Id = :Obj.Id].Location_Contact__c);
-        
+                
         
    }
 }

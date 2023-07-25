@@ -1,35 +1,6 @@
 global class HUDNameToUpdateAccountsBatch implements Database.Batchable<sObject>{
     public String email;
 
-/* causing CPU time limit error
-    global Database.querylocator start(Database.BatchableContext BC){
-        return Database.getQueryLocator([
-            select Id, Name, 
-            (select Id,LastName,AccountId from Contacts where hud_MULE_UNIQUE_PERSON_KEY__c != null order by CreatedDate asc limit 1)
-            from Account
-            where RecordType.Name = 'Administrative'
-        ]);
-    }
-
-     global void execute(Database.BatchableContext BC, List<sObject> scope){
-        List<sObject> accountsToUpdate = new List<sObject>();
-        for(sObject s : scope){
-            Account myRecord = (Account)s;
-            Contact[] objs = myRecord.Contacts;
-            if(objs!=null && !objs.isEmpty()) {
-                for(Contact myObj: objs) {
-                    if (myRecord.Name != myObj.LastName + ' Account'){
-                        myRecord.Name = myObj.LastName + ' Account';
-                        accountsToUpdate.add(myRecord);
-                    }
-                }
-            }
-        }
-        update accountsToUpdate;
-*/
-
-
-
 
 global Database.querylocator start(Database.BatchableContext BC){
         return Database.getQueryLocator([

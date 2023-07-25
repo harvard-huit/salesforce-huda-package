@@ -29,23 +29,6 @@ private class HUDJobSelfSchedule_Test {
        Obj.MULE_UNIQUE_PERSON_KEY__c = '91156500';
        insert Obj;
 
-      // Schedule the test job
-      //  String jobId = System.schedule('testScheduledApex',
-      //       HUDJobSelfSchedule.CRON_EXP, 
-      //       new HUDJobSelfSchedule());
-
-      // Get the information from the CronTrigger API object
-      // CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, 
-      //    NextFireTime
-      //    FROM CronTrigger WHERE id = :jobId];
-
-      // Verify the expressions are the same
-      // System.assertEquals(HUDJobSelfSchedule.CRON_EXP, 
-      //    ct.CronExpression);
-
-      // Verify the job has not run
-      // System.assertEquals(0, ct.TimesTriggered);
-
       // Verify the next time the job will run
       // The following line might need to comment out when deploying it to prod.
       //System.assertEquals('2016-12-01 13:40:00', 

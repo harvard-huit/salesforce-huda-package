@@ -4,9 +4,4 @@
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
     <label>JobAdmin</label>
-    <packageVersions>
-        <majorNumber>1</majorNumber>
-        <minorNumber>121</minorNumber>
-        <namespace>hed</namespace>
-    </packageVersions>
 </ApexPage>
