@@ -1,0 +1,162 @@
+<apex:page showHeader="true" sidebar="true" controller="JobAdmin">
+	<apex:form >
+		<apex:sectionHeader title="HUDA Job Admin" />
+
+		<apex:pageMessages />
+
+		<apex:pageBlock title="Jobs" mode="edit">
+			<apex:pageBlockButtons location="top">
+			</apex:pageBlockButtons>
+			
+			
+			<apex:pageBlockSection title="Data Initial Importing Batches">
+				<apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:30%">
+					<apex:outputPanel >
+						Run Address Update by Contacts
+					</apex:outputPanel>
+					<apex:commandButton action="{!runAddressesUpdateByContactsBatch}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:30%">
+					<apex:outputPanel >
+						Run Email Update by Contacts
+					</apex:outputPanel>
+					<apex:commandButton action="{!runEmailsUpdateByContactsBatch}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						Run Location Update by Contacts
+					</apex:outputPanel>
+					<apex:commandButton action="{!runLocationsUpdateByContactsBatch}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						Run Phone Update by Contacts
+					</apex:outputPanel>
+					<apex:commandButton action="{!runPhonesUpdateByContactsBatch}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						Run Name Update by Contacts - Job 1
+					</apex:outputPanel>
+					<apex:commandButton action="{!runNamesUpdateByContactsBatch1}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						Run Affiliations Update by Contacts
+					</apex:outputPanel>
+					<apex:commandButton action="{!runAffiliationsUpdateByContactsBatch}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						Run Name Update by Contacts - Job 2
+					</apex:outputPanel>
+					<apex:commandButton action="{!runNamesUpdateByContactsBatch2}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						Run Affiliations Update by Accounts
+					</apex:outputPanel>
+					<apex:commandButton action="{!runAffiliationsUpdateByAccountsBatch}" value="Run"/>
+				</apex:pageBlockSectionItem>
+			   
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						Run Name Update by Contacts - Job 3
+					</apex:outputPanel>
+					<apex:commandButton action="{!runNamesUpdateByContactsBatch3}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				
+				
+				 </apex:pageBlockSection>
+				
+				
+			
+			<apex:pageBlockSection title="Daily Jobs">
+				<apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:30%">
+					<apex:outputPanel >
+						Re-mapping Contacts' Last Names (Realtime)
+					</apex:outputPanel>
+					<apex:commandButton action="{!runContactsLastnamesRemapping}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem dataStyle="width:5%" labelStyle="width:30%">
+					<apex:outputPanel >
+						Re-mapping Contacts' Names (All)
+					</apex:outputPanel>
+					<apex:commandButton action="{!runContactsNamesRemapping}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						Re-mapping Accounts Names (All)
+					</apex:outputPanel>
+					<apex:commandButton action="{!runAccountNamesRemapping}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				 
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						Re-mapping Contacts' Email (All)
+					</apex:outputPanel>
+					<apex:commandButton action="{!runContactsEmailsRemapping}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						New Address Objects Mapping
+					</apex:outputPanel>
+					<apex:commandButton action="{!runNewAddressMapping}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						New Email Objects Mapping
+					</apex:outputPanel>
+					<apex:commandButton action="{!runNewEmailMapping}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						New Name Objects Mapping
+					</apex:outputPanel>
+					<apex:commandButton action="{!runNewNameMapping}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						New Location Objects Mapping
+					</apex:outputPanel>
+					<apex:commandButton action="{!runNewLocationMapping}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						New Phone Objects Mapping
+					</apex:outputPanel>
+					<apex:commandButton action="{!runNewPhoneMapping}" value="Run"/>
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						New Affiliation Objects Mapping
+					</apex:outputPanel>
+					<apex:commandButton action="{!runNewAffiliationMapping}" value="Run"/>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+			
+			
+		</apex:pageBlock>
+
+		<a href="/apexpages/setup/listAsyncApexJobs.apexp">Apex Jobs</a>
+	</apex:form>
+</apex:page>

@@ -51,7 +51,7 @@ This is only needed if the project uses a namespace -- the HUDA project does use
 
   c. create scratch org
     ```
-    sfdx org:create:scratch -s -f config/project-scratch-def.json -a MyScratchOrg
+    sfdx org:create:scratch -f config/project-scratch-def.json -a MyScratchOrg
     ```
 
     Note: this can take 2-10 minutes
