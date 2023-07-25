@@ -1,6 +1,6 @@
 # Salesforce DX Project: HUDA
 
-This is a re-creation of the original HUDA 2.0. Built from the package. 
+This is a re-creation of the original HUDA 2.0. Built from the package. This repository should get you set up with being able to deploy the Winter 2020 release (2.0.0.1).
 
 ## EDA Requirement
 
@@ -19,9 +19,15 @@ However, it should be noted that EDA is deprecated and nearing end of life. So t
 
 In order to install the older version of HUDA (that this code comes from), use this package id: `04t3s000002zlI8`
 
-### Setup steps
+```
+https://test.salesforce.com/packaging/installPackage.apexp?p0=04t3s000002zlI8
+```
 
-NOTE: You can see what orgs your sfdx environment is currently using with `sfdx org:list`. That will show your dev hub and any sandboxes or scratch orgs. 
+### Development Setup Steps
+
+NOTE: This is a "second generation package", which generally means development and deployment are done through the sfdc-cli, available here: [https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm]
+
+NOTE: You can see what orgs your sfdx environment is currently using with `sf org:list`. That will show your dev hub and any sandboxes or scratch orgs. 
 
 1. Create a Dev Hub from a Developer org
   a. sign up for a developer org, these are free and unaffiliated with your other orgs
@@ -58,22 +64,49 @@ This is only needed if the project uses a namespace -- the HUDA project does use
     
 2. Generate a password (needed to install the EDA package)
     ```
-    sfdx force:user:password:generate --targetusername <username to scratch org>
+    sf force:user:password:generate --targetusername <username to scratch org>
     ```
+
+    You can also get the password if it exists with:
+    ```
+    sf org:display -target-org <username or alias of scratch org>
+    ```
+
 3. Install EDA by going here and logging in to your scratch org with the password you just created: [https://install.salesforce.org/products/eda/latest/install]
 
 4. Install HUDA from your local to your scratch org:
     ```
-    sfdx project:deploy:start --sourcepath . --targetusername test-h3t42txpg2ux@example.com
+    sf project:deploy:start --sourcepath . --targetusername test-h3t42txpg2ux@example.com
     ```
-    This will move all of the meta data and create the objects/classes over as though it was installed.
+    This will move all of the meta data and create the objects/classes over as though it was installed. 
 
-    Or you can build the package and install that. 
-    
-    Building the package looks like: 
+    This is the way things get compiled, you'll get the compile errors from doing this and be able to debug (if there are any). 
+
+    You can check what packages are installed in the org with this command:
+    ```
+    sf package:installed:list --target-org HarvardDataScratch
     ```
 
+    You may need to delete the existing huda due to conflicts. This is best done through the Salesforce interface, settings -> installed packages, but you can use:
     ```
+    sf package:uninstall --target-org HarvardDataScratch --pacakge <package id>
+    ```
+
+
+5. Create versioned package:
+    A versioned package will push the package to a salesforce cloud location that can be retrieved by consumers with a link.
+
+    ```
+    sf package:version:create --path force-app --installation-key test1234 --wait 10 --target-dev-hub DevHub
+    ```
+
+    NOTE: the installation key is a password added to the package so not anyone can install it.
+
+    This can then be installed using the link that is given to you, something like: 
+    ```
+    https://test.salesforce.com/packaging/installPackage.apexp?p0=04t3s000002zlI8
+    ```
+
 
 ### Creating source from compiled package
 
