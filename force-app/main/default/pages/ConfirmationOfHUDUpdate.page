@@ -1,0 +1,22 @@
+<apex:page >
+  
+  <h1>HUDA Objects Update By Contacts</h1>
+  <p/>Thank you. 
+  <p/>
+  <b>
+  {!$CurrentPage.parameters.myCount} counts for {!$CurrentPage.parameters.myObject} mapping have finished. 
+  </b>
+  
+  <p/>
+  <p/>
+  <apex:form >
+  <apex:commandLink value="back to previous page" onclick="window.history.back();">
+  
+  </apex:commandLink>
+  </apex:form>
+  
+  <br /><br /> 
+
+  
+ 
+</apex:page>

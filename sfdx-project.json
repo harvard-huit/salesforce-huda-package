@@ -8,7 +8,7 @@
       "versionNumber": "2.0.NEXT",
       "dependencies": [
         {
-          "package": "eda@1.121"
+          "package": "EDA"
         }
       ]    
     }
@@ -16,5 +16,10 @@
   "name": "huda",
   "namespace": "HUDA",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "57.0"
+  "sourceApiVersion": "57.0",
+  "packageAliases": {
+    "EDA": "04t1R0000016bHcQAI",
+    "huda": "0HoDp000000fxZhKAI",
+    "huda@2.0": "04t3s000002zlI8"
+  }
 }
