@@ -115,8 +115,13 @@ This is only needed if the project uses a namespace -- the HUDA project does use
     ```
     sf package:version:create --path force-app --installation-key test1234 --wait 10 --target-dev-hub DevHub
     ```
+    ```
+    sf package:version:create --path force-app --installation-key-bypass --wait 10 --target-dev-hub DevHub
+    ```
 
-    NOTE: the installation key is a password added to the package so not anyone can install it.
+
+
+    NOTE: the installation key is a password added to the package so not anyone can install it. 
 
     This can then be installed using the link that is given to you, something like: 
     ```
