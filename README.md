@@ -134,7 +134,7 @@ This is only needed if the project uses a namespace -- the HUDA project does use
 You can also create an "unlocked" package. These are useful as they allow people to meddle with them. Deployed versions allow you to view and change the Apex code. They are not namespaced though. 
 
 ```
-sf package:create --name huda --description "Huda Unlocked" --package-type Unlocked --path force-app --target-dev-hub DevHub
+sf package:create --name HUDA --description "Huda Unlocked" --package-type Unlocked --path force-app --target-dev-hub DevHub
 ```
 
 That package can then be seen by doing a `sf package:list` command and it can be deployed with:
@@ -148,7 +148,7 @@ sf package:install --package 0HoXXXXXXXXXXX --target-org HarvardDataScratch
 A managed package created this way (without versioning it) will create a reference to a package that won't be available through Salesforce. It will need to be deployed through sfdx commands. (`sf package:install`)
 
 ```
-sfdx package:create --name huda --description "Huda Managed" --path force-app --package-type Managed --target-dev-hub DevHub
+sfdx package:create --name HUDA --description "Huda Managed" --path force-app --package-type Managed --target-dev-hub DevHub
 ```
 
 #### Get the package id

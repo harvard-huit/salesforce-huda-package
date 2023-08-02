@@ -2,12 +2,13 @@
   "packageDirectories": [
     {
       "path": "force-app",
-      "package": "huda",
-      "versionName": "3.0 (BETA)",
+      "package": "HUDA",
       "versionNumber": "3.0.0.NEXT",
       "dependencies": [],
       "default": true,
-      "versionDescription": "Huda 3.0 (Beta)"
+      "versionName": "v3.0 (BETA X)",
+      "versionDescription": "Welcome to HUDA v3 Summer 2023 Beta Package",
+      "ancestorId": "HUDA@2.0.0.5"
     }
   ],
   "name": "HUDA",
@@ -15,10 +16,11 @@
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "58.0",
   "packageAliases": {
-    "huda": "0HoDp000000fxZhKAI",
-    "huda@2.0": "04t3s000002zlI8AAI",
-    "huda@3.0.0-1": "04tDp000000ZjQOIA0",
-    "huda@3.0.0-2": "04tDp000000ZjQTIA0",
-    "huda@3.0.0-3": "04tDp000000ZjQYIA0"
+    "HUDA": "0HoDp000000fxZhKAI",
+    "HUDA@2.0.0.5": "04t3s000002zlI8AAI",
+    "HUDA@3.0.0-1": "04tDp000000ZjQOIA0",
+    "HUDA@3.0.0-2": "04tDp000000ZjQTIA0",
+    "HUDA@3.0.0-3": "04tDp000000ZjQYIA0",
+    "HUDA@3.0.0-4": "04tDp000000ZjSjIAK"
   }
 }

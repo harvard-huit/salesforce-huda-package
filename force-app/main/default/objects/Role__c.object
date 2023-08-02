@@ -155,14 +155,14 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <label>Affiliation</label>
+    <label>Harvard Role</label>
     <nameField>
-        <displayFormat>AF-{000000}</displayFormat>
-        <label>Affiliation Key</label>
+        <displayFormat>Role-{000000}</displayFormat>
+        <label>Role Key</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Affiliations</pluralLabel>
+    <pluralLabel>Roles</pluralLabel>
     <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
