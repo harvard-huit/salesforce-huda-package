@@ -1,0 +1,52 @@
+name: Setup Project
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - dev
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    container: salesforce/cli:latest-full
+    # container: salesforce/cli:latest-slim
+    steps:
+      - name: Checkout Code
+        uses: actions/checkoutv3
+
+      - name: Check cli
+        run: |
+            sf commands
+      - name: Persist Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: my_variable.txt
+
+        # sf auth:jwt:grant --instance-url https://harvarduniversity-c-dev-ed.develop.my.salesforce.com --username jazahn@gmail.com.dev --client-id 3MVG93inh8Bkz5nbNGX8zbWcqiJaGaT5Pm3P42Q2mBhjdPLOv01aJPkjYX4A_tDBgtx.Kfgy6DQDOE.lrVIgC --jwt-key-file secret.key --set-default-dev-hub --alias DevHub
+      - name: Log in to DevHub with JWT
+        run: |
+            echo -e "${{ secrets.DEVHUB_JWT_SECRET }}" > secret.key
+            sf auth:jwt:grant --instance-url https://harvarduniversity-c-dev-ed.develop.my.salesforce.com --username jazahn@gmail.com.dev --client-id ${{ secrets.DEVHUB_CLIENT_KEY }} --jwt-key-file secret.key --set-default-dev-hub
+            rm -rf secret.key
+
+      - name: Look for valid scratch Orgs
+        run: |
+          ORGS=$(sf org:list --json)
+          SCRATCH_ORGS=$(echo $ORGS | jq '.result.scatchOrgs | try map(select(.connectedStatus == "Connected")) catch []')
+          if [[ ${#SCRATCH_ORGS[@]} -gt 0 ]]; then
+            org_id=$SCRATCH_ORGS[0].
+
+      - name: Create a scratch org
+        run: |
+            sf org:create:scratch -f config/project-scratch-def.json -a HarvardDataScratch 
+        
+      - name: List Orgs
+        run: |
+            sf org:list
+
+      - name: Install EDA
+        run: | 
+            
+        
