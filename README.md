@@ -1,6 +1,31 @@
 # Salesforce DX Project: HUDA
 
-This is a re-creation of the original HUDA 2.0. Built from the package. This repository should get you set up with being able to deploy the Winter 2020 release (2.0.0.1).
+
+## IMPORTANT NOTE
+
+**This repository is defunct.** It was a failure of an exercise to recreate/convert the old HUDA into a newer version.
+
+**The old HUDA is/was a First Generation Package.** 
+
+ - It lives here: [https://d6a000001idiouaq-dev-ed.my.salesforce.com/]
+ - The primary login name is (as of the writing of this): `hudapackage1@harvard.edu`
+ - This is a "Packageing Org" but it also functions as the "Namespace Org"
+   - **Packaging Orgs** are only needed for first generation packages
+     - the "code" lives on the org
+     - the package is cannot be converted into code
+   - **Namespace Orgs** are needed for holding on to namespaces, such as **HUDA** or **HUD**, which are prefixes to all custom objects/classes/fields included in the package
+     - this is expected to remain as the primary Namespace Org that we use moving forward
+ - **As of the writing of this, there is no migration path for First Generation Packages into Second Generation Packages**
+
+We will archive this repository, but keep it around as reference. Please see: [https://github.huit.harvard.edu/HUIT/salesforce-harvard-data-package] for the spiritual successor to this.
+
+
+********************************** Begin Bad Documentation ********************************
+
+(If you're interested in more "bad" documentation, please see the dev branch of this repository, which is the attempted recreation.)
+
+
+This is a re-creation of the original HUDA 2.0. Built from the package. ~This repository should get you set up with being able to deploy the Winter 2020 release (2.0.0.1).~
 
 ## EDA Requirement
 
